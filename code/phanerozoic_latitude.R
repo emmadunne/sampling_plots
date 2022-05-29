@@ -43,7 +43,7 @@ int_boundaries <- c(358.9, 298.9, 252.1, 237, 201.3, 145, 66, 23.03, 0)
 ## Create the plot in ggplot
 lat_plot <- ggplot() +
   # Add a shaded rectangle to highlight a particular interval, in this case the Late Triassic based on its age in Ma:
-  geom_rect(aes(xmin = 201.3, xmax = 237, ymin=-90, ymax=90), alpha = 0.5, fill = "#DEB7FE") +
+  #geom_rect(aes(xmin = 201.3, xmax = 237, ymin=-90, ymax=90), alpha = 0.5, fill = "#DEB7FE") +
   # Add vertical lines for the interval boundaries using the vector from above:
   geom_vline(xintercept = int_boundaries, lty = 2, col = "grey90") +
   # Add a horizontal lone for the equator:
@@ -59,13 +59,12 @@ lat_plot <- ggplot() +
   # Add text to the axes:
   labs(x = "", y = "Palaeolatitude (º)") +
   # Finally, add the points for the occurrences: 
-  geom_point(data = tetrapoda, aes(x = ma_mid, y = paleolat), alpha = 0.3, size = 1.2, colour = "grey50")
+  geom_point(data = tetrapoda, aes(x = ma_mid, y = paleolat), alpha = 0.3, size = 2, colour = "#8D74A0")
 lat_plot # call the plot to the plot window
 
 ggsave("./plots/phanerozoic_latitude.pdf", lat_plot,  
-       height = 15, width = 25, units = "cm")
+       height = 13, width = 20, units = "cm")
 
-ggsave()
 
 ## Geological timeline can be added later in Adobe Illustrator etc.
 ## Or you can try out the deeptime package: https://github.com/willgearty/deeptime

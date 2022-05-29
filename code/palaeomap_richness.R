@@ -76,7 +76,7 @@ palaeomap_plot # pull the map up in the plot window
 
 ## Save the plot file:
 ggsave(plot = palaeomap_plot,
-       width = 17, height = 12, dpi = 600, units = "cm",
+       width = 18, height = 13, dpi = 600, units = "cm",
        filename = "./plots/palaeomap_richness.pdf")
 
 
