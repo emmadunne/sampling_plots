@@ -2,7 +2,7 @@
 #
 #   Sampling plots
 #
-#   E. M. Dunne (03-05-2022)
+#   E. M. Dunne (28-05-2025)
 # ______________________________________________________
 #
 #   Plot showing latitude of PBDB collections 
@@ -53,7 +53,7 @@ lat_plot <- ggplot() +
   # And the same for the y-axis (palaeolatitude):
   scale_y_continuous(labels = function(x) format(x, width = 5), limits = c(-90,90), breaks = seq(from = -90, to = 90, by = 15)) +
   # Set the theme to 'minimal' and make some adjustments to the legend etc.:
-  theme_minimal() + theme(legend.position = c(0.2, 0.85), legend.direction = "vertical", 
+  theme_minimal() + theme(legend.position.inside = c(0.2, 0.85), legend.direction = "vertical", 
                           panel.grid.major.x = element_blank(), panel.grid.minor.x = element_blank(), 
                           panel.grid.minor.y = element_blank(), axis.title = element_text(size = 14)) +
   # Add text to the axes:

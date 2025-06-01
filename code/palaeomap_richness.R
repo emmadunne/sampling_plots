@@ -2,7 +2,7 @@
 #
 #   Sampling plots
 #
-#   E. M. Dunne (03-05-2022)
+#   E. M. Dunne (28-05-2025)
 # ______________________________________________________
 #
 #   Palaeomap displaying species richness
@@ -12,7 +12,8 @@
 
 ## Install and then load the following packages:
 library(tidyverse) # data manipulation and plotting
-library(chronosphere) # for getting the maps - for citation use: citation("chronosphere") 
+library(rgplates) # for getting the maps - for citation use: citation("rgplates") 
+library(geojsonsf) # for reconstructing paleogeographies
 library(ggpubr) # for arranging the maps into panels
 
 
@@ -38,7 +39,7 @@ head(map_data)
 
 ## Next, grab a map for your time interval of choice by using its age in Ma
 ## Here, for the Late Triassic, I've chosen 215Ma which is roughly the midpoint
-palaeomap_LT <- reconstruct("plates", age = 215) # takes a little bit of time to run!
+palaeomap_LT <- rgplates::reconstruct("static_polygons", age = 215) # takes a little bit of time to run!
 
 ## Take a quick look:
 par(mar = c(2, 2, 2, 2)) # set plot margins
@@ -55,7 +56,7 @@ palaeomap_theme <- theme_minimal() + theme(axis.title.x=element_blank(), axis.te
 ## Build the map in ggplot:
 palaeomap_plot <-  ggplot() +
   ## Grab your palaeomap:
-  geom_polygon(data = palaeomap_LT, aes(x = long, y = lat, group = group), fill = "grey75", color = "grey75") +
+  geom_sf(data = palaeomap_LT, colour = "grey75", fill = "grey75") +
   # Use the Mollweide projection:
   coord_map("mollweide") +
   # Add the localities:
